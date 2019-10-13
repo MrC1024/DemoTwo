@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bdqn.demo.mapper.UserMapper">
+     <select id="getAll" resultType="cn.bdqn.demo.pojo.User">
+         SELECT * FROM  smbms_user
+     </select>
+    <delete id="del">
+        delete from smbms_user where id=#{id}
+    </delete>
+    <insert id="add" parameterType="cn.bdqn.demo.pojo.User">
+        insert into smbms_user(userCode,userName,userPassword,gender,birthday,phone,address,userRole,createdBy,creationDate)
+				values(#{userCode},#{userName},#{userPassword},#{gender},#{birthday},#{phone},#{address},#{userRole},#{createdBy},#{creationDate})
+    </insert>
+    <select id="getId" resultType="cn.bdqn.demo.pojo.User">
+        select * from smbms_user where id=#{id}
+    </select>
+    <update id="update" parameterType="cn.bdqn.demo.pojo.User">
+        UPDATE smbms_user SET userName=#{userName},birthday=#{birthday} WHERE id=#{id}
+    </update>
+</mapper>
+
